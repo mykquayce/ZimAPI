@@ -9,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services
 	.AddMemoryCache()
+	.AddHealthChecks()
+		.Services
 	.AddTransient<HttpMessageHandler>(_ => new HttpClientHandler { AllowAutoRedirect = false, })
 	.AddCachingHandler(c => c.Expiration = TimeSpan.FromHours(1))
 	.AddSingleton(new XmlSerializerFactory())
@@ -30,6 +32,7 @@ if (app.Environment.IsDevelopment())
 	app.MapOpenApi();
 }
 
+app.MapHealthChecks("/healthz");
 app.MapControllers();
 
 app.Run();

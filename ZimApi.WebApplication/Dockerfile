@@ -10,6 +10,7 @@ RUN dotnet publish ./ZimApi.WebApplication.csproj --arch $TARGETARCH --configura
 FROM mcr.microsoft.com/dotnet/aspnet:10.0-alpine
 EXPOSE 8080/tcp
 ENV ASPNETCORE_ENVIRONMENT=Production
+HEALTHCHECK CMD wget --spider http://localhost:8080/healthz || exit 1
 WORKDIR /app
 COPY --from=build-env /app/publish .
 ENTRYPOINT ["dotnet", "./ZimApi.WebApplication.dll"]
