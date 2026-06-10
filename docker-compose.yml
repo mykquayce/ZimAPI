@@ -1,0 +1,7 @@
+services:
+  zimapi:
+    image: eassbhhtgu/zimapi:latest
+    cap_drop: [ ALL, ]
+    ports: [ 8080:8080/tcp, ]
+    read_only: true
+    security_opt: [ no-new-privileges=true, ]
