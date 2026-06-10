@@ -1,6 +1,9 @@
 @ZimApi.WebApplication_HostAddress = http://localhost:5254
 
-GET {{ZimApi.WebApplication_HostAddress}}/weatherforecast/
+GET {{ZimApi.WebApplication_HostAddress}}/library/
 Accept: application/json
 
 ###
+
+GET {{ZimApi.WebApplication_HostAddress}}/metadata?uri=https%3A%2F%2Flbo.download.kiwix.org%2Fzim%2Fwikipedia%2Fwikipedia_en_all_maxi_2026-02.zim.meta4
+Accept: application/json
