@@ -12,3 +12,7 @@ Accept: application/json
 
 GET {{ZimApi.WebApplication_HostAddress}}/healthz
 Accept: application/json
+
+###
+GET {{ZimApi.WebApplication_HostAddress}}/openapi/v1.json
+Accept: application/json
